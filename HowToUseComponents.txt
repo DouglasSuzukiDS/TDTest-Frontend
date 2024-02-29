@@ -1,0 +1,107 @@
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [checkRadio, setCheckRadio] = useState(false)
+  const [checkCheckbox, setCheckCheckbox] = useState(false)
+
+
+<Icon 
+icon="Check"
+color='#F0F'
+width={ 24 }
+height={ 24 }
+/>
+
+<InputField 
+label='Email'
+placeholder="Email"
+color='#FF0'
+value={ email }
+onChange={ setEmail }
+/>
+
+<InputField 
+label='Email'
+placeholder="Email"
+color='#FF0'
+value={ email }
+onChange={ setEmail }
+icon={{
+  icon: 'CircleUser',
+  color: '#F0F',
+  width: 24,
+  height: 24
+}}
+/>
+
+<InputField 
+label='Nome'
+placeholder="Nome"
+color='#FF0'
+value={ email }
+onChange={ setEmail }
+icon={{
+  icon: 'CircleUser',
+  color: '#F0F',
+  width: 24,
+  height: 24
+}}
+/>
+
+<InputField 
+label='Senha'
+placeholder="Senha"
+type="password"
+showPassword={ showPassword }
+onClick={ () => setShowPassword(!showPassword) }
+color='#FF0'
+value={ password }
+onChange={ setPassword }
+/>
+
+<p>{ ` ShowPassword é ${ showPassword } ` }</p>
+
+
+<CheckField 
+type="radio"
+text="Text Radio"
+color="#F0F"
+width={ 24 }
+height={ 24 }
+check={ checkRadio }
+onClick={ () => setCheckRadio(!checkRadio) }
+/>
+
+<CheckField 
+type="radio"
+color="#F0F"
+width={ 24 }
+height={ 24 }
+check={ checkRadio }
+onClick={ () => setCheckRadio(!checkRadio) }
+/>
+
+<CheckField 
+type="checkbox"
+text="Text CheckBox"
+color="#F0F"
+width={ 24 }
+height={ 24 }
+check={ checkCheckbox }
+onClick={ () => setCheckCheckbox(!checkCheckbox) }
+/>
+
+<div className="border flex">
+<CheckField 
+  type="checkbox"
+  color="#F0F"
+  width={ 24 }
+  height={ 24 }
+  check={ checkCheckbox }
+  onClick={ () => setCheckCheckbox(!checkCheckbox) }
+/>    
+
+<p>
+  dddwdw
+</p>
+</div>

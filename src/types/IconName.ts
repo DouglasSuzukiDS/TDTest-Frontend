@@ -1,0 +1,1 @@
+export type IconName = 'BackArrow' | 'Check' | 'Circle' | 'CircleCheck' | 'CircleUser' | 'Document' | 'DupleChat' | 'EyeOn' | 'EyeOff' | 'Layout' | 'List' | 'Logout' | 'Mail' | 'NewFile' | 'Notification' | 'Search' | 'Square' | 'SquareCheck'
