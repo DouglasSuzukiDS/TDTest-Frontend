@@ -1,16 +1,19 @@
 import '../../app/globals.css'
 import Head from "next/head"
 import Image from "next/image"
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import Hero from '../../../public/image/Hero.png'
+
 import { InputField } from "@/components/InputField"
 import { CheckField } from "@/components/CheckField"
 import { KeyboardEvent, useState } from "react"
 import { Icon } from '@/components/Icon'
-import Link from 'next/link'
-import { checkValue as check } from '@/libs/checkValue'
+import { Button } from '@/components/Button'
+
 import { api } from '@/libs/api'
-import { redirect } from 'next/navigation'
-import { useRouter } from 'next/router'
+import { checkValue as check } from '@/libs/checkValue'
 
 const Register = () => {
    const [name, setName] = useState('')
@@ -28,39 +31,27 @@ const Register = () => {
 
    const router = useRouter()
 
-   const checkEmail = (email: string) => {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-      if (regex.test(email)) {
-         setEmail(email)
-      }
-
-      // ^ => Representa o início da string.
-      // [^\s@]+ => Corresponde a um ou mais caracteres que não sejam espaços em branco ou @.
-      // @ => Corresponde ao caractere @.
-      // [^\s@]+ => Corresponde a um ou mais caracteres que não sejam espaços em branco ou @.
-      // \. => Corresponde ao caractere ponto (.), que é necessário em um endereço de e-mail válido.
-      // [^\s@]+ =>  Corresponde a um ou mais caracteres que não sejam espaços em branco ou @.
-      // $ =>  Representa o final da string.
-   }
-
    const handleCreateAccount = async() => {
       if (
          name !== '' &&
          check.checkEmail(email) &&
          password !== '' &&
-         confirmPassword !== '' &&
-         password === confirmPassword) {
-         const successs = api.createAccount(name, email, password)
+         confirmPassword !== '') {
+            if(password !== confirmPassword) {
+               alert('A senha e confirmação de senha não são iguais.')
+            } else {
+               const successs = api.createAccount(name, email, password)
 
-         await successs && alert('Usuário criado com sucesso')
-
-         setName('')
-         setEmail('')
-         setPassword('')
-         setConfirmPassword('')
-
-         router.push('/login')
+               await successs && alert('Usuário criado com sucesso')
+      
+               setName('')
+               setEmail('')
+               setPassword('')
+               setConfirmPassword('')
+      
+               router.push('/login')
+            }
+         
       } else {
          alert('Por favor, preencha os campos corretamente.')
       }
@@ -217,12 +208,10 @@ const Register = () => {
 
                   {/* Button Area */}
                   <div className="flex flex-col mt-5">
-                     <button
-                        className="bg-beige text-white font-bold py-2 px-12 rounded cursor-pointer transition-all duration-700 hover:opacity-90"
-                        style={{ fontSize: '30px' }}
-                        onClick={handleCreateAccount}>
-                        Cadastrar
-                     </button>
+                     <Button 
+                        label='Cadastrar'
+                        onClick={ handleCreateAccount }
+                     />
                   </div>
                </div>
 

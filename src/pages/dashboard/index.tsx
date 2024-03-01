@@ -74,7 +74,7 @@ export default function Home() {
               {/* User Info from localStorage */}
               <div className={ `${ open ? 'h-[200px]' : 'h-auto' } bg-lightLayout pt-1 ` }>
                 {/* Toggle Icon */}
-                <div className={ `${ open ? 'w-full pr-12 items-end justify-end' : 'h-[70px] justify-center items-center' } flex flex-1 cursor-pointer tablet:pt-10` }
+                <div className={ `${ open ? 'w-full pr-12 items-end justify-end' : 'h-[70px] justify-center items-center' } flex flex-1 cursor-pointer pt-10` }
                   onClick={ () => setOpen(!open) }>
                   <Icon 
                     icon="List"
@@ -110,6 +110,10 @@ export default function Home() {
                       height={ 100 }
                     />
                   </div>
+
+                  <p className={`text-font-14 font-bold italic mt-2 ${ !open ? 'hidden' : 'tablet:block' }`}>
+                    👨‍💻 com muito <span>❤</span> por <a className="no-underline text-sky-600" href="https://www.linkedin.com/in/douglas-suzuki" target="_blank">ニッキエ</a>
+                  </p>
 
                   {/* Navigation Items */}
                   <ul className={ ` ${ open ? 'mt-12' : 'mt-20' } w-full` }>
@@ -148,17 +152,19 @@ export default function Home() {
                     {/* Line Division */}
                     <div className={ `${ open ? 'mx-11' : 'mx-0' } border border-[#D1D1D1]` }></div>
 
-                    <li title="LoremIpsum" className={ `${ open ? 'li' : 'li-hover flex justify-center items-center p-4' } transition-all duration-700` }>
-                      <span>
+                    <li title="Codado por" className={ `${ open ? 'li' : 'li-hover flex justify-center items-center p-4' } transition-all duration-700` }>
+                    <a className="no-underline font-bold" href="https://www.linkedin.com/in/douglas-suzuki" target="_blank">
                         <Icon 
                           icon={ "CircleUser" }
                           color='inherit'
                           width={ 24 }
                           height={ 24 }
                         />
-                      </span>
+                      </a>
 
-                      <span className={ `${ open ? 'block': 'hidden' }` }>LoremIpsum</span>
+                      <span className={ `${ open ? 'block': 'hidden' }` }>
+                        <a className="no-underline font-bold" href="https://www.linkedin.com/in/douglas-suzuki" target="_blank">ニッキエ</a>
+                      </span>
                     </li>
                   </ul>
                 </div>

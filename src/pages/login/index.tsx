@@ -1,23 +1,27 @@
-import { KeyboardEvent, useEffect, useState } from "react";
-import Hero from '../../../public/image/Hero.png'
+import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+import { KeyboardEvent, useEffect, useState } from "react";
+
+import '../../app/globals.css'
+
+import Hero from '../../../public/image/Hero.png'
+
 import { InputField } from "@/components/InputField";
 import { CheckField } from "@/components/CheckField";
-import Head from "next/head";
-import '../../app/globals.css'
-import Link from "next/link";
+import { Button } from "@/components/Button";
+
 import { Modal } from "@/components/Modal";
-import { checkValue } from "@/libs/checkValue";
 import { api } from "@/libs/api";
-import { useRouter } from "next/router";
-import { redirect } from "next/navigation";
+import { checkValue } from "@/libs/checkValue";
 
 const Login = () => {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [showPassword, setShowPassword] = useState(false)
    const [checkRadio, setCheckRadio] = useState(false)
-   const [saveEmailAndPassword, setsaveEmailAndPassword] = useState(false)
 
    const [emailForgot, setEmailForgot] = useState('')
    const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false)
@@ -157,23 +161,20 @@ const Login = () => {
 
                   {/* Button Area */}
                   <div className="flex flex-col mt-5">
-                     <button
-                        className="bg-beige text-white font-bold py-2 px-12 rounded cursor-pointer transition-all duration-700 hover:opacity-90"
-                        style={{ fontSize: '30px' }}
-                        onClick={ handleLogin }>
-                        Entrar
-                     </button>
+                     <Button 
+                        label="Entrar"
+                        onClick={ handleLogin }
+                     />
 
                      <button
-                        className="text-beige text-center font-medium mt-4"
-                        style={{ fontSize: '18px' }}
+                        className="text-beige text-center font-medium mt-4 text-font-18"
                         onClick={ handleOpenForgotModal }>
                         Esqueceu a senha?
                      </button>
                   </div>
 
                   {/* New here */}
-                  <p className="text-darkLayout mt-32" style={{ fontSize: '18px' }}>
+                  <p className="text-darkLayout mt-32 text-font-18 mb-4">
                      Novo por aqui ? <Link href='/register' className="text-beige cursor-pointer">Cadastre-se</Link>
                   </p>
                </div>
@@ -212,11 +213,10 @@ const Login = () => {
                         </div>
                         
                         <div className="flex justify-center items-center mt-6 tablet:mt-14">
-                           <button
-                              className="bg-beige text-white text-font-22 font-bold py-2 px-12 rounded cursor-pointer transition-all duration-700 hover:opacity-90 tablet:text-font-30"
-                              onClick={ handleOpenConfirmEmailModal }>
-                              Enviar
-                           </button>
+                           <Button 
+                              label="Enviar"
+                              onClick={ handleOpenConfirmEmailModal }
+                           />
                         </div>
 
                         <p 
@@ -250,11 +250,10 @@ const Login = () => {
                         </div>
                      
                         <div className="flex justify-center items-center mt-6 tablet:mt-14">
-                           <button
-                              className="bg-beige text-white text-font-22 font-bold py-2 px-12 rounded cursor-pointer transition-all duration-700 hover:opacity-90 tablet:text-font-30"
-                              onClick={ () => setShowConfirmEmailModal(!showConfirmEmailModal) }>
-                              Fechar
-                           </button>
+                           <Button 
+                              label="Entrar"
+                              onClick={ () => setShowConfirmEmailModal(!showConfirmEmailModal) }
+                           />
                         </div>
 
                         <p 
